@@ -1,0 +1,27 @@
+================================
+Telnet Socket Module
+================================
+
+
+..  automodule:: modules.telnetSocket
+    :members:
+
+
+.. code:: python
+
+    import telnetSocket
+    m1= telnetSocket.telnetSocket()
+    m1.startSocketThread()
+    m1.t1.start() 
+
+    ###now nc localhost 50007
+    ##or telnet localhost 50007
+
+    m1.relayMessages()  ##will relay messages to telnet as long as connected
+    ##or
+    m1.conn.send("hi")  ##send message to socket even if not connected
+
+    ##after close execute these commands to let the connection close out. 
+    m1.keepConnection=False
+    m1.estConnection =False
+    m1.t1.join()

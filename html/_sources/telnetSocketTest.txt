@@ -1,0 +1,48 @@
+================================
+Telnet Socket Module HowTo
+================================
+.. code:: python
+
+    import telnetSocket
+.. code:: python
+
+    m1= telnetSocket.telnetSocket()
+.. code:: python
+
+    m1.startSocketThread()
+.. code:: python
+
+    m1.t1.start() 
+    ###now nc localhost 50007
+    ##or telnet localhost 50007
+
+.. parsed-literal::
+
+    waiting for connection
+    Connected by ('127.0.0.1', 42265)
+
+
+.. code:: python
+
+    m1.relayMessages()  ##will relay messages to telnet as long as connected
+    ##or
+    m1.conn.send("hi")  ##send message to socket even if not connected
+
+.. parsed-literal::
+
+    
+    
+
+
+.. code:: python
+
+    ##after close
+    m1.keepConnection=False
+    m1.estConnection =False
+    m1.t1.join()
+
+.. parsed-literal::
+
+    
+    
+
